@@ -1,0 +1,62 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+  <title>Network Monitoring Dashboard</title>
+  <meta name="description" content="website description" />
+  <meta name="keywords" content="website keywords, website keywords" />
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+  <link rel="stylesheet" type="text/css" href="style/style.css" title="style" />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+
+<body>
+  <div id="main">
+    <div id="header">
+      <div id="logo">
+        <div id="logo_text">
+          <!-- class="logo_colour", allows you to change the colour of the text -->
+          <h1><a href="index.html">Interface <span class="logo_colour">Metric</span></a></h1>
+        </div>
+      </div>
+      <div id="menubar">
+        <ul id="menu">
+          <!-- put class="selected" in the li tag for the selected page - to highlight which page you're on -->
+          <li><a href="index.html">Home</a></li>
+          <li><a href="examples.html">Device Monitoring</a></li>
+          <li class="selected"><a href="page.html">Interface</a></li>
+          <li><a href="another_page.html">Traffic Class</a></li>
+          <li><a href="contact.html">Débit</a></li>
+        </ul>
+      </div>
+    </div>
+    <div id="site_content">
+      
+      <div id="content">
+        <!-- insert the page content here -->
+        <h1>Donner l'addresse de votre interface</h1>
+        <input type="text" id="input_value" placeholder="ip_address">
+        <button id="scan" >scan</button>
+        <div id="output"></div>
+        <script>
+        $(document).ready(function() {
+  $("#scan").click(function() {
+    var input_value = $("#input_value").val();
+    $.post("http://localhost:5005/post_input", {input_value: input_value});
+    var iframe = document.createElement("iframe");
+    iframe.src = "http://localhost:5601/app/dashboards#/create?embed=true&_g=(refreshInterval:(pause:!f,value:1000),time:(from:now%2Fd,to:now%2Fd))&_a=(panels:!((embeddableConfig:(attributes:(description:'',references:!((id:'6d155973-1c7a-4de0-b488-2b4bceba1e26',name:indexpattern-datasource-layer-3b01e5bd-c60d-4227-bf44-fab6ba7fdba6,type:index-pattern)),state:(adHocDataViews:(),datasourceStates:(formBased:(layers:('3b01e5bd-c60d-4227-bf44-fab6ba7fdba6':(columnOrder:!(ce2e9e2b-d450-4404-bef6-662c35961297,'07814877-798c-48c0-afd4-1619da5f38ac','3bd8c60d-5c72-4707-ad22-e2bdc80afefe'),columns:('07814877-798c-48c0-afd4-1619da5f38ac':(dataType:number,isBucketed:!f,label:'Moving%20average%20of%20Count%20of%20value.keyword',operationType:moving_average,params:(window:5),references:!('3bd8c60d-5c72-4707-ad22-e2bdc80afefe'),scale:ratio),'3bd8c60d-5c72-4707-ad22-e2bdc80afefe':(dataType:number,isBucketed:!f,label:'Count%20of%20value.keyword',operationType:count,params:(emptyAsNull:!t),scale:ratio,sourceField:value.keyword),ce2e9e2b-d450-4404-bef6-662c35961297:(dataType:date,isBucketed:!t,label:timestamp,operationType:date_histogram,params:(dropPartials:!f,includeEmptyRows:!t,interval:auto),scale:interval,sourceField:timestamp)),incompleteColumns:(),sampling:1))),textBased:(layers:())),filters:!(),internalReferences:!(),query:(language:kuery,query:''),visualization:(axisTitlesVisibilitySettings:(x:!t,yLeft:!t,yRight:!t),fittingFunction:None,gridlinesVisibilitySettings:(x:!t,yLeft:!t,yRight:!t),labelsOrientation:(x:0,yLeft:0,yRight:0),layers:!((accessors:!('07814877-798c-48c0-afd4-1619da5f38ac'),layerId:'3b01e5bd-c60d-4227-bf44-fab6ba7fdba6',layerType:data,position:top,seriesType:line,showGridlines:!f,xAccessor:ce2e9e2b-d450-4404-bef6-662c35961297)),legend:(isVisible:!t,position:right),preferredSeriesType:line,tickLabelsVisibilitySettings:(x:!t,yLeft:!t,yRight:!t),valueLabels:hide)),title:dash1,type:lens,visualizationType:lnsXY)),gridData:(h:15,i:a37153ca-136a-4f0b-9255-ea352058d7f2,w:24,x:9,y:0),panelIndex:a37153ca-136a-4f0b-9255-ea352058d7f2,type:lens,version:'8.7.1')))";
+    iframe.height = "600";
+    iframe.width = "800";
+    $('#output').append(iframe);
+  });
+});
+
+      </script>
+      </div>
+    </div>
+    <div id="footer">
+      Mohamed Amine Hamdi| Wajdi Mansour | Haykel Bargougui
+    </div>
+  </div>
+</body>
+</html>

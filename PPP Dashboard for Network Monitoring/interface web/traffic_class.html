@@ -1,0 +1,57 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+  <title>Network Monitoring Dashboard</title>
+  <meta name="description" content="website description" />
+  <meta name="keywords" content="website keywords, website keywords" />
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+  <link rel="stylesheet" type="text/css" href="style/style.css" title="style" />
+</head>
+
+<body>
+  <div id="main">
+    <div id="header">
+      <div id="logo">
+        <div id="logo_text">
+          <!-- class="logo_colour", allows you to change the colour of the text -->
+          <h1><a href="index.html">Traffic <span class="logo_colour">Class</span></a></h1>
+        </div>
+      </div>
+      <div id="menubar">
+        <ul id="menu">
+          <!-- put class="selected" in the li tag for the selected page - to highlight which page you're on -->
+          <li><a href="index.html">Home</a></li>
+          <li><a href="examples.html">Device Monitoring</a></li>
+          <li><a href="page.html">Interface</a></li>
+          <li class="selected"><a href="another_page.html">Traffic Class</a></li>
+          <li><a href="contact.html">Débit</a></li>
+        </ul>
+      </div>
+    </div>
+    <div id="site_content">
+     
+      <div id="content">
+        <!-- insert the page content here -->
+        <h1>Traffic class</h1>
+        <input type="text" id="subnetInput" placeholder="Subnet">
+        <button id="scan" >scan</button>
+        <div id="output">
+        </div>
+        <script>
+       document.getElementById("scan").addEventListener("click", function() {
+  var iframe = document.createElement("iframe");
+  iframe.src = "http://localhost:5601/app/dashboards#/create?embed=true&_g=(refreshInterval:(pause:!f,value:1000),time:(from:now-15h,to:now))&_a=(panels:!((embeddableConfig:(attributes:(description:'',references:!((id:af04fcbb-eda9-4e75-bc88-02b8a813d19e,name:indexpattern-datasource-layer-150b3b2e-0499-484e-85ed-39ae5a43955f,type:index-pattern)),state:(adHocDataViews:(),datasourceStates:(formBased:(layers:('150b3b2e-0499-484e-85ed-39ae5a43955f':(columnOrder:!('82ab470d-02e0-48ba-8642-991ff56ce84e',aacbaeb9-4bee-437f-a619-3ec1cb2e95e0),columns:('82ab470d-02e0-48ba-8642-991ff56ce84e':(dataType:string,isBucketed:!t,label:'Top%205%20values%20of%20message.keyword',operationType:terms,params:(exclude:!(),excludeIsRegex:!f,include:!(),includeIsRegex:!f,missingBucket:!f,orderBy:(columnId:aacbaeb9-4bee-437f-a619-3ec1cb2e95e0,type:column),orderDirection:desc,otherBucket:!t,parentFormat:(id:terms),size:5),scale:ordinal,sourceField:message.keyword),aacbaeb9-4bee-437f-a619-3ec1cb2e95e0:(dataType:number,isBucketed:!f,label:'Count%20of%20records',operationType:count,params:(emptyAsNull:!t),scale:ratio,sourceField:___records___)),incompleteColumns:(),sampling:1))),textBased:(layers:())),filters:!(),internalReferences:!(),query:(language:kuery,query:''),visualization:(axisTitlesVisibilitySettings:(x:!t,yLeft:!t,yRight:!t),fittingFunction:None,gridlinesVisibilitySettings:(x:!t,yLeft:!t,yRight:!t),labelsOrientation:(x:0,yLeft:0,yRight:0),layers:!((accessors:!(aacbaeb9-4bee-437f-a619-3ec1cb2e95e0),layerId:'150b3b2e-0499-484e-85ed-39ae5a43955f',layerType:data,position:top,seriesType:bar_stacked,showGridlines:!f,xAccessor:'82ab470d-02e0-48ba-8642-991ff56ce84e')),legend:(isVisible:!t,position:right),preferredSeriesType:bar_stacked,tickLabelsVisibilitySettings:(x:!t,yLeft:!t,yRight:!t),valueLabels:hide)),title:traffic_class,type:lens,visualizationType:lnsXY)),gridData:(h:14,i:'9f4e43b4-bdda-4bfd-8531-5098eba524ce',w:36,x:6,y:0),panelIndex:'9f4e43b4-bdda-4bfd-8531-5098eba524ce',type:lens,version:'8.7.1')))";
+  iframe.height = "600";
+  iframe.width = "800";
+  document.getElementById("output").appendChild(iframe);
+});
+</script>
+      </div>
+    </div>
+    <div id="footer">
+      Mohamed Amine Hamdi| Wajdi Mansour | Haykel Bargougui
+    </div>
+  </div>
+</body>
+</html>

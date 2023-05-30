@@ -1,0 +1,15 @@
+# Nmap 7.94 scan initiated Tue May 30 14:51:09 2023 as: nmap -p 161 --open -sU -sS --script=snmp-netstat -oN scan_results.txt 192.168.5.1/24
+Nmap scan report for 192.168.5.1
+Host is up (0.015s latency).
+Not shown: 1 closed tcp port (reset)
+PORT    STATE SERVICE
+161/udp open  snmp
+MAC Address: C8:02:28:34:00:10 (Unknown)
+
+Nmap scan report for 192.168.5.10
+Host is up (0.00s latency).
+Not shown: 1 closed tcp port (reset)
+PORT    STATE         SERVICE
+161/udp open|filtered snmp
+
+# Nmap done at Tue May 30 14:51:48 2023 -- 256 IP addresses (2 hosts up) scanned in 39.11 seconds
